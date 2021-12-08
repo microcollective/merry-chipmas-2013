@@ -1,0 +1,866 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>Merry Chipmas 2013</title>
+		<style>
+			@import url(http://fonts.googleapis.com/css?family=Gilda+Display|Sacramento);
+			@font-face {
+				font-family: 'HB Pixel 7';
+				src: url('half_bold_pixel-7-webfont.eot');
+				src: url('half_bold_pixel-7-webfont.eot?#iefix') format('embedded-opentype'),
+					 url('half_bold_pixel-7-webfont.woff') format('woff'),
+					 url('half_bold_pixel-7-webfont.ttf') format('truetype'),
+					 url('half_bold_pixel-7-webfont.svg#half_bold_pixel-7regular') format('svg');
+				font-weight: normal;
+				font-style: normal;
+			}
+			
+			body {
+				background-color: /* rgb(224, 136, 240) */rgb(36,37,99);
+				background-image: url(background.png);
+				background-repeat: repeat-x;
+				background-attachment: fixed;
+				background-position: 0 0;
+				color: #242563;
+				font-family: 'Gilda Display', serif;
+				font-size: 20px;
+				line-height: 1.6em;
+				margin: 0;
+			}
+			
+			a {
+				color: #4370c3;
+			}
+			
+			.cursive {
+				font-family: 'Sacramento', cursive;
+				font-size: 26px;
+			}
+			
+
+			h1 {
+				color: #fff;
+				font-size: 50px;
+				padding: 0;
+				text-align: center;
+			}
+		
+			.ground {
+				background-image: url(ground_tile-400.png);
+				position: fixed;
+				left: 0;
+				right: 0;
+				height: 277px;
+				bottom: 0;
+				z-index: 2;
+			}
+			
+			.back {
+				z-index: 0;
+				bottom: 48px;
+			}
+			
+			section.titleSec {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				text-align: center;
+				max-width: 960px;
+				padding: 0 20px 0 20px;
+				margin: 0 auto;
+				z-index: 3;
+			}
+			
+			img.title {
+				max-width: 920px;
+				padding: 200px 0 0 0;
+				position: relative;
+				width: 100%;
+			}
+			
+			.tagline {
+				color: #fff;
+				max-width: 920px;				
+				margin: 0 auto;
+				text-align: left;
+				padding: 0;
+			}
+			
+			.tagline p {
+				margin: 4px 0 0 0;
+			}
+			
+			.arrow {
+				cursor: pointer;
+				margin: 0 auto;
+				height: 64px;
+				width: 64px;
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: -20px;
+				
+				-webkit-transition: opacity 300ms;
+				-moz-transition: opacity 300ms;
+				-ms-transition: opacity 300ms;
+				-o-transition: opacity 300ms;
+				transition: opacity 300ms;
+			}
+			
+			.opNone {
+				opacity: 0;
+			}
+			
+			section.titleSecPadd {
+				height: 503px;
+			}
+			
+			section.mainSec {
+				background: rgba(255,255,255,0.6);
+				margin: 0 auto;
+				padding: 280px 20px 20px 20px;
+				position: relative;
+				max-width: 920px;
+				min-height: 1200px;
+				z-index: 1;
+			}
+			
+			.decorated-tree {
+				background-image: url(decorated-800.png);
+				position: absolute;
+				height: 424px;
+				width: 224px;
+				right: 6%;
+				top: -387px;
+			}
+			
+			.group2 {
+				position: absolute;
+				height: 116px;
+				left: 11%;
+				top: -99px;
+				z-index: 1;
+			}
+			
+			.snowman {
+				background-image: url(snowman-400.png);
+				background-repeat: no-repeat;
+				height: 116px;
+				min-width: 84px;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				z-index: 1;
+			}
+			
+			.snowman:hover {
+				background-image: url(snowman-surprise.png);
+				cursor: pointer;
+			}
+			
+			#speechGround {
+				display: none;
+			}
+			
+			.speech {
+				background-image: url('middle.png');
+				height: 36px;
+				margin: 0 0 0 88px;
+				min-width: 24px;
+			}
+			
+			.speech-right {
+				background-image: url('right.png');
+				position: absolute;
+				right: -8px;
+				top: 0;
+				height: 36px;
+				width: 8px;
+			}
+			
+			.speech-left {
+				background-image: url('left.png');
+				position: absolute;
+				left: 80px;
+				top: 0;
+				height: 36px;
+				width: 8px;
+			}
+			
+			.speech-text {
+				color: #000;
+				display: inline-block;
+				font-family: 'HB Pixel 7', monospace;
+				-webkit-font-smoothing: none;
+				-moz-font-smoothing: none;
+				font-smoothing: none;
+				vertical-align: middle;
+			}
+			
+			.credit {
+				color: #000;
+				display: none;
+				font-family: 'HB Pixel 7', monospace;
+				-webkit-font-smoothing: none;
+				-moz-font-smoothing: none;
+				font-smoothing: none;
+				vertical-align: middle;
+			}
+			
+			.red-present {
+				background-image: url(red-present-200.png);
+				top: -59px;
+				right: 63%;
+				position: absolute;
+				height: 88px;
+				width: 88px;
+			}
+			
+			.green-present {
+				background-image: url(red-present.png);
+				-webkit-filter: hue-rotate(97deg);
+				top: -23px;
+				right: 9%;
+				position: absolute;
+				height: 44px;
+				width: 44px;
+			}
+			
+			.group1 {
+				position: absolute;
+				right: 10%;
+				width: 295px;
+			}
+			
+			.preload {
+				display: none;
+			}
+			
+			.playerControls {
+				cursor: pointer;
+				display: inline-block;
+			}
+			
+			#play {
+				background-image: url(play.png);
+				background-position: center bottom;
+				background-repeat: no-repeat;
+				display: inline-block;
+				height: 26px;
+				width: 32px;
+				vertical-align: middle;
+			}
+			
+			#pause {
+				display: none;
+
+				background-image: url(pause.png);
+				background-position: center bottom;
+				background-repeat: no-repeat;
+				height: 26px;
+				width: 32px;
+				vertical-align: middle;
+			}
+			
+			#next {
+				background-image: url(next.png);
+				background-position: center bottom;
+				background-repeat: no-repeat;
+				display: inline-block;
+				height: 26px;
+				width: 32px;
+				vertical-align: middle;
+			}
+			
+			#last {
+				background-image: url(last.png);
+				background-position: center bottom;
+				background-repeat: no-repeat;
+				display: inline-block;
+				height: 26px;
+				width: 32px;
+				vertical-align: middle;
+			}
+			
+			.sleigh {
+				background-image: url('./sleigh/0.png');
+				height: 128px;
+				position: absolute;
+				width: 128px;
+				left: 10%;
+				top: 2%;
+			}
+			
+			.flip {
+				-webkit-transform: scaleX(-1);
+				-moz-transform: scaleX(-1);
+				-o-transform: scaleX(-1);
+				transform: scaleX(-1);
+			}
+			
+			.air {
+				position: fixed;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				z-index: -1;
+			}
+			
+			.pink {
+				background-color: #e088f0;
+				height: 430px;
+				position: fixed;
+				top: 430px;
+				left: 0;
+				right: 0;
+			}
+			
+			@media all and (max-height: 725px) {
+				img.title {
+					padding: 90px 0 0 0;
+				}
+			}
+			
+			@media all and (max-height: 500px) {
+				.sleigh {
+					display: none;
+				}
+			}
+			
+			/* Phones */
+			@media only screen 
+				and (min-device-width : 320px) 
+				and (max-device-width : 480px) {
+				
+				.ground {
+					bottom: -104px;
+				}
+				
+				.back {
+					bottom: -32px;
+				}
+				
+				section.mainSec {
+					padding: 20px 20px 20px 20px;
+				}
+				
+				h1 {
+					font-size: 50px;
+					line-height: 1em;
+				}
+			}
+			
+			@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+				.ground {
+					bottom: -190px;
+				}
+				
+				.back {
+					bottom: -132px;
+				}
+			}
+			
+			@media only screen and (max-device-height : 480px) and (orientation : landscape) {
+				.ground {
+					bottom: -190px;
+				}
+				
+				.back {
+					bottom: -132px;
+				}
+			}
+			
+			@media all and (max-width: 960px) {
+				.arrow {
+					position: relative;
+					bottom: 0;
+				}
+				
+				.tagline {
+					display: inline-block;
+					text-align: center;
+				}
+			}
+			
+			@media all and (max-width: 660px) {
+				.group1 {
+					position: relative;
+					right: 0;
+					width: 295px;
+					margin: 0 auto;
+				}
+				
+				#speechGround {
+					display: inline-block;
+				}
+				
+				#snowSpeech {
+					display: none;
+				}
+				
+				.ground {
+					text-align: center;
+				}
+				
+				.speech {
+					margin: 0;
+					position: relative;
+					bottom: -45px;
+					display: inline-block;
+				}
+				
+				.speech-left {
+					left: -4px;
+				}
+			}
+			
+			@media all and (max-width: 570px) {
+				.speech {
+					background: #fff;
+					height: auto;
+					display: block;
+					border: 4px #000 solid;
+				}
+				
+				.speech-left, .speech-right {
+					display: none;
+				}
+			}
+			
+			@media all and (max-width: 540px) {
+				.snowman {
+					display: none;
+				}
+			}
+			
+			@media all and (max-width: 412px) {
+				.sleigh {
+					display: none;
+				}
+			}
+		</style>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="ThinPlayer.js"></script>
+	</head>
+	<body>
+		<div class="preload">
+			<img src="snowman-surprise.png"/>
+			<img src="./sleigh/1.png"/>
+			<img src="./sleigh/2.png"/>
+			<img src="./sleigh/3.png"/>
+			<img src="./sleigh/4.png"/>
+			
+			<div id="cont">
+				<div id="loadbar" class="bar"></div>
+				<div id="bar" class="bar"></div>
+				<div id="time">00:00</div>
+				<div id="seekbar"></div>
+			</div>
+		</div>
+		<section class="air">
+			<div class="sleigh flip"></div>
+		</section>
+		<section class="pink"></section>
+		<section class="titleSecPadd"></section>
+		<section class="titleSec">
+			<img src="title.png" class="title" />
+			<div class="tagline">
+				<p class="cursive">
+					Our fourth collection of holiday inspired chipmusic!<br>
+				</p>
+			</div>
+			<div class="arrow">
+				<img class="arrowSprite" src="./arrow/0.png" width="64" height="64" style="display:block" />
+				<img class="arrowSprite" src="./arrow/1.png" width="64" height="64" style="display:none"/>
+				<img class="arrowSprite" src="./arrow/2.png" width="64" height="64" style="display:none"/>
+				<img class="arrowSprite" src="./arrow/3.png" width="64" height="64" style="display:none"/>
+				<img class="arrowSprite" src="./arrow/4.png" width="64" height="64" style="display:none"/>
+				<img class="arrowSprite" src="./arrow/5.png" width="64" height="64" style="display:none"/>
+				<img class="arrowSprite" src="./arrow/6.png" width="64" height="64" style="display:none"/>
+				<img class="arrowSprite" src="./arrow/7.png" width="64" height="64" style="display:none"/>
+				<img class="arrowSprite" src="./arrow/7.png" width="64" height="64" style="display:none"/>
+			</div>
+		</section>
+		<section class="mainSec">
+			<p>
+				You can download Merry Chipmas 2013 or listen here.<br><br>
+				If you download you'll get bonus modules from MicroD, kfaraday, wailord and jiffypop23!
+			</p>
+			
+			<h1><a href="mc2013.zip">Download!</a></h1>
+		</section>
+		<aside class="ground back">
+			<div class="group1">
+				<div class="decorated-tree"></div>
+				<div class="green-present"></div>
+				<div class="red-present"></div>
+			</div>
+		</aside>
+		<aside class="ground">
+			<div class="group2">
+				<div class="snowman"></div>
+				<div id="snowSpeech" class="speech">
+					<div id="last" class="playerControls" onclick="javascript:tP.changeState('last')"></div>
+					<div id="play" class="playerControls" onclick="javascript:tP.changeState('play')"></div>
+					<div id="pause" class="playerControls" onclick="javascript:tP.changeState('pause')"></div>
+					<div id="next" class="playerControls" onclick="javascript:tP.changeState('next')"></div>
+					<div class="speech-text">&lt;3</div>
+					<div class="credit">
+						Art by <a href="http://lxtxcx.info/">lxtxcx</a>
+					</div>
+					<div class="speech-left"></div>
+					<div class="speech-right"></div>
+				</div>
+			</div>
+			
+			<div id="speechGround" class="speech">
+				<div id="last" class="playerControls" onclick="javascript:tP.changeState('last')"></div>
+				<div id="play" class="playerControls" onclick="javascript:tP.changeState('play')"></div>
+				<div id="pause" class="playerControls" onclick="javascript:tP.changeState('pause')"></div>
+				<div id="next" class="playerControls" onclick="javascript:tP.changeState('next')"></div>
+				<div class="speech-text">&lt;3</div>
+				<div class="speech-left"></div>
+				<div class="speech-right"></div>
+			</div>
+			
+		</aside>
+		<script>
+			var tP = null;
+			window.onload = function() {
+				var ground 			= document.getElementsByClassName('ground')[1];
+				var ground2 		= document.getElementsByClassName('ground')[0];
+				var groundBottom 	= ground.style.bottom;
+				var groundBottom2 	= 48;
+				var title 			= document.getElementsByClassName('title')[0];
+				var arrowCont 		= document.getElementsByClassName('arrow')[0];
+				var padder 			= document.getElementsByClassName('titleSecPadd')[0];
+				var backMove 		= 0;
+				var prevScroll		= 0;
+				var scrollDirection	= 'notScrolled';
+				var mainCont		= document.getElementsByClassName('mainSec')[0];
+				var pink			= document.getElementsByClassName('pink')[0];
+				var mobileOn 		= false;
+				var body			= document.getElementsByTagName('body')[0];
+				
+				window.onscroll = parallax;
+				window.onresize = resize;
+				
+				document.addEventListener("changesong", function(e) {
+					var speechText = toArray(document.getElementsByClassName('speech-text'));
+					
+					speechText.forEach(function(entry) {
+						entry.innerHTML = e.detail.replace('./audio/', '').replace('.mp3', '').replace('.ogg', '');
+					});
+				});
+				
+				function resize() {
+					padder.style.height	= (((window.innerHeight)-(getProp(ground, 'height')))-1);
+					/*
+if(!mobileOn) mainCont.style.minHeight = window.innerHeight-220;
+					else mainCont.style.minHeight = window.innerHeight;
+*/
+					pink.style.height = window.innerHeight;
+				}
+				
+				function parallax() {
+					if(!mobileOn) {
+						var yOff = window.pageYOffset;				
+						if(yOff > prevScroll) scrollDirection = 'down';
+						else scrollDirection = 'up';
+						prevScroll = yOff;
+						
+						document.getElementsByTagName('body')[0].style.backgroundPositionY = (yOff/10) + 'px';
+						
+						if(yOff < 502) {
+							title.style.marginTop = (yOff/1.5) + 'px';
+						} else {
+							title.style.marginTop = yOff-167 + 'px';
+						}
+						
+						if(yOff < 600) {
+							ground.style.bottom = groundBottom + -(yOff/4) + 'px';
+							ground2.style.bottom = groundBottom2 + -(yOff/6) + 'px';
+						}
+						
+						if(yOff > 20) {
+							arrowCont.style.opacity = 0;
+						} else {
+							arrowCont.style.opacity = 1;
+						}
+					}
+				}
+							
+				var arrowI = 0;
+				function arrowAnimate() {
+					var arrowSprite = document.getElementsByClassName('arrowSprite')[arrowI];
+					arrowSprite.style.display = 'none';
+					if(arrowI < 8) arrowI++;
+					else arrowI = 0;
+					arrowSprite = document.getElementsByClassName('arrowSprite')[arrowI];
+					arrowSprite.style.display = 'block';
+					setTimeout(arrowAnimate, 130);
+				}
+				
+				function getProp(elem, prop) {
+					var style = window.getComputedStyle(elem, null);
+					return parseInt(style.getPropertyValue(prop).replace('px', ''));
+				}
+				
+				arrowAnimate();
+				resize();
+				
+				//Really cba with click event handlers, shut up :|
+				$('.arrow').click(function() {
+					$('html,body').animate({
+						scrollTop: $('.mainSec').height()
+					}, 1000);
+				});
+				
+				var credit = false;
+				
+				$('.snowman').click(function() {
+					if(credit) credit = false;
+					else credit = true;
+					
+					$('.speech-text, .credit, #next, #last').toggle();
+					
+					if(credit) {
+						$('#play').hide();						
+						$('#pause').hide();
+					} else {
+						if(tP.isPlaying()) $('#pause').show();						
+						else $('#play').show();
+					}
+				});
+				
+				var $div = $('.sleigh');				
+				var keys = {};
+				var down = {};
+				
+				var lr = null;
+				var ud = null;
+				var moving = false;
+				var sleighAnim = 1;
+
+				function moveSleigh() {					
+					var windowWidth = window.innerWidth-128;
+					var windowHeight = window.innerHeight-128;
+					
+					if(lr == 'left' && $div.position().left > 0) {
+						$div.css('left', '-='+4);
+						$div.removeClass('flip');
+						backMove--;
+			  			body.style.backgroundPositionX = backMove + 'px';
+					}
+					
+					if(lr == 'right' && $div.position().left < windowWidth) {
+						$div.css('left', '+='+4);
+						$div.addClass('flip');
+						backMove++;
+			  			body.style.backgroundPositionX = backMove + 'px';
+					}
+					
+					if(ud == 'up' && $div.position().top > 0) {
+						$div.css('top', '-='+4);
+					}
+					
+					if(ud == 'down' && $div.position().top < windowHeight) {
+						$div.css('top', '+='+4);
+					}
+					
+					if(ud == null && lr == null) moving = false;
+					else moving = true;
+					
+					if(moving && lr != null) {
+						if(sleighAnim < 4) sleighAnim++;
+						else sleighAnim = 1;
+						$div.css('background-image', 'url(./sleigh/'+sleighAnim+'.png)');
+					} else {
+						sleighAnim = 0;
+						$div.css('background-image', 'url(./sleigh/0.png)');
+					}
+					
+					setTimeout(moveSleigh, 50);
+				}
+				moveSleigh();
+				
+				function moveBackground() {
+					if(!moving) {
+						backMove++;
+						body.style.backgroundPositionX = backMove + 'px';
+					}
+					setTimeout(moveBackground, 110);
+				}
+				moveBackground();
+				
+				$(document).keydown(function (e) {
+					keys[e.which] = true;
+					printKeys(e);
+				});
+				
+				$(document).keyup(function (e) {
+					delete keys[e.which];
+					delete down[e.which];
+					
+					switch(e.which) {
+						case 37:
+							/* LEFT */
+							if(lr == 'left' && keys[39] == null) lr = null;
+							else lr = 'right';
+							break;
+							
+						case 38:
+							/* UP */
+							if(ud == 'up' && keys[40] == null) ud = null;
+							else ud = 'down';
+							break;
+						
+						case 39:
+							/* RIGHT */
+							if(lr == 'right' && keys[37] == null) lr = null;
+							else lr = 'left';
+							break;
+							
+						case 40:
+							/* DOWN */
+							if(ud == 'down' && keys[38] == null) ud = null;
+							else ud = 'up';
+							break;
+					}
+					printKeys(e);
+				});
+				
+				function printKeys(e) {
+					for (var i in keys) {
+						if(!keys.hasOwnProperty(i)) continue;
+						
+						switch(i) {
+							case '37':
+								/* LEFT */
+								e.preventDefault();
+								if(down[i] == null) {
+									lr = 'left';
+									down[i] = true;
+								}
+								break;
+							case '38':
+								/* UP */
+								e.preventDefault();
+								if(down[i] == null) {
+									ud = 'up';
+									down[i] = true;
+								}
+								
+								break;
+							case '39':
+								/* RIGHT */
+								e.preventDefault();
+								if(down[i] == null) {
+									lr = 'right';
+									down[i] = true;
+								}
+								break;
+							case '40':
+								/* DOWN */
+								e.preventDefault();
+								if(down[i] == null) {
+									ud = 'down';
+									down[i] = true;
+								}
+								break;
+						}
+					}
+				}
+				
+				function checkMobile() {
+					var isMobile = {
+					    Android: function() {
+					        return navigator.userAgent.match(/Android/i);
+					    },
+					    BlackBerry: function() {
+					        return navigator.userAgent.match(/BlackBerry/i);
+					    },
+					    iOS: function() {
+					        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+					    },
+					    Opera: function() {
+					        return navigator.userAgent.match(/Opera Mini/i);
+					    },
+					    Windows: function() {
+					        return navigator.userAgent.match(/IEMobile/i);
+					    },
+					    any: function() {
+					        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+					    }
+					};
+				
+					if(isMobile.any()) {
+						mobileOn = true;
+						pink.style.display = 'none';
+						body.style.backgroundAttachment = 'fixed';
+						body.style.backgroundColor = '#D46AFE';
+					} else {
+					    mobileOn = false;
+					}
+				}
+				checkMobile();
+				
+				function toArray(list) {
+					var i, array = [];
+					for  (i=0; i<list.length;i++) {array[i] = list[i];}
+					return array;
+				}
+				
+				tP = new ThinPlayer({
+					src: [
+						{'mp3' : './audio/01 Joe Bleeps - Step Into Christmas.mp3', 'ogg' : './audio/01 Joe Bleeps - Step Into Christmas.ogg'},
+						{'mp3' : './audio/02 muteKi - The Christmas Song.mp3', 'ogg' : './audio/02 muteKi - The Christmas Song.ogg'},
+						{'mp3' : './audio/03 DBOYD - Jingle Bell Rock.mp3', 'ogg' : './audio/03 DBOYD - Jingle Bell Rock.ogg'},
+						{'mp3' : './audio/04 CLSource - Santa Drank my Colemono.mp3', 'ogg' : './audio/04 CLSource - Santa Drank my Colemono.ogg'},
+						{'mp3' : './audio/05 Ikasam - Christmas Memories.mp3', 'ogg' : './audio/05 Ikasam - Christmas Memories.ogg'},
+						{'mp3' : './audio/06 sleeping arms - tiny snow shovel.mp3', 'ogg' : './audio/06 sleeping arms - tiny snow shovel.ogg'},
+						{'mp3' : './audio/07 jiffypop23 - Awatenbou no Santakuroosu.mp3', 'ogg' : './audio/07 jiffypop23 - Awatenbou no Santakuroosu.ogg'},
+						{'mp3' : './audio/08 2PLAYER - Sleighride.mp3', 'ogg' : './audio/08 2PLAYER - Sleighride.ogg'},
+						{'mp3' : './audio/09 81ttr45hr10t - 8 Bit Kinderlein.mp3', 'ogg' : './audio/09 81ttr45hr10t - 8 Bit Kinderlein.ogg'},
+						{'mp3' : './audio/10 Matecha - Let It Snow.mp3', 'ogg' : './audio/10 Matecha - Let It Snow.ogg'},
+						{'mp3' : './audio/11 Laffe the Fox - Santa Away!.mp3', 'ogg' : './audio/11 Laffe the Fox - Santa Away!.ogg'},
+						{'mp3' : './audio/12 MicroD - Nighthark.mp3', 'ogg' : './audio/12 MicroD - Nighthark.ogg'},
+						{'mp3' : './audio/13 Starman Stan - Gruss vom Krampus.mp3', 'ogg' : './audio/13 Starman Stan - Gruss vom Krampus.ogg'},
+						{'mp3' : './audio/14 SketchMan3 - Jesu Parvule (Amagi 3mix).mp3', 'ogg' : './audio/14 SketchMan3 - Jesu Parvule (Amagi 3mix).ogg'},
+						{'mp3' : './audio/15 Pocaille - Last Christmas (Wham! Cover).mp3', 'ogg' : './audio/15 Pocaille - Last Christmas (Wham! Cover).ogg'},
+						{'mp3' : './audio/16 Kloudygirl - Stirring of the Mouse... (Carol of the Bells cover).mp3', 'ogg' : './audio/16 Kloudygirl - Stirring of the Mouse... (Carol of the Bells cover).ogg'},
+						{'mp3' : './audio/17 S.P.R.Y - Maoz Tzur.mp3', 'ogg' : './audio/17 S.P.R.Y - Maoz Tzur.ogg'},
+						{'mp3' : './audio/18 kfaraday - The Christmas Tree.mp3', 'ogg' : './audio/18 kfaraday - The Christmas Tree.ogg'},
+						{'mp3' : './audio/19 3ndymion - !!!ZOMG!!! Joy Joy.mp3', 'ogg' : './audio/19 3ndymion - !!!ZOMG!!! Joy Joy.ogg'},
+						{'mp3' : './audio/20 wailord - when your keys are locked in car during winter.mp3', 'ogg' : './audio/20 wailord - when your keys are locked in car during winter.ogg'},
+						{'mp3' : './audio/21 Starman Stan - Snowy Overworld.mp3', 'ogg' : './audio/21 Starman Stan - Snowy Overworld.ogg'},
+						{'mp3' : './audio/22 Pieces of Eight - Christmas (Baby Please Come Home).mp3', 'ogg' : './audio/22 Pieces of Eight - Christmas (Baby Please Come Home).ogg'}
+					],
+					drag: true,
+					autoplay: true,
+					repeat: true,
+					playlist: true,
+					bindings: {
+						controls: {
+							play: '#play',
+							pause: '#pause',
+							stop: '#stop'
+						},
+						player: {
+							container: '#cont',
+							playBar: '#bar',
+							time: '#time',
+							seekBar: '.seekbar',
+							loadBar : '#loadbar'
+						}
+					}
+				});
+			}
+		</script>
+		<script src="snowstorm.js"></script>
+	</body>
+</html>
